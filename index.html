@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Car Driving</title>
+	<style type="text/css">
+		
+        .barV, .barH {
+            position:absolute;
+            background-color: darkorange;
+            z-index: 5;
+        }
+        .barV {
+            width: 10px;
+            height: 100px;
+            top: 80px;
+            left: 760px;
+        }
+        .barH {
+            width: 100px;
+            height: 10px;
+            top: 162px;
+            left: 793px;
+        }
+	</style>
+</head>
+<body>
+	<div id="car"></div>
+    <div id ="track"></div>
+    
+    <button id="start" onclick="start()" >Start</button>
+    <button id="stop" onclick="stop()" >Stop</button>
+    <button id="reset" onclick="reset()" >Reset</button>
+    
+    <div class = "barV"></div>
+    <div class = "barH"></div>
+    
+    <script type="text/javascript">
+		'use strict';
+		// initialize car position
+		var car = document.getElementById('car');
+
+		var intervalId;
+
+		reset();
+
+		function reset(){
+            car.style.top = "100px";
+            car.style.left = "250px";
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#car {
+    position: absolute;
+    background-image: url('car-red.png');
+    background-size: cover;
+    z-index:4;
+    width: 100px;
+    height: 49px;
+}
+
+#track {
+    position:absolute;
+    background-image: url('racer-track.png');
+    background-size: cover;
+    z-index:-1;
+    width: 978px;
+    height: 459px;
+}
