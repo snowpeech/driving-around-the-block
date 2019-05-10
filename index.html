@@ -26,7 +26,7 @@
 
 </head>
 <body>
-	<div id="car"></div>
+	<div id="car" direction = "right"></div>
     <div id ="track"></div>
     
     <button id="start" onclick="start()" >Start</button>
@@ -54,12 +54,43 @@
             intervalId = setInterval(carTick,50);
         }
 
-        function carTick(e){
-            console.log(e)
+        function carTick(){
+            moveLeft();
+            evalInt();
         }
 
         function stop(){
             clearInterval(intervalId);
+        }
+
+        function moveLeft(){
+            car.style.left = `${parseInt(car.style.left.replace("px",""))+10}px`;
+        }
+
+        function evalInt(){
+            //get car direction and coordinates 
+            var direction = car.attributes[1].nodeValue;
+            console.dir(car);
+            console.log(direction);
+            //create switch cases for each direction
+
+            switch(direction) {
+                case "right":
+                    console.log("right!!!")
+                    break;
+                
+                case "down":
+                    console.log("down!!!")
+                    break;
+                
+                case "left":
+                    console.log("lfet!!!")
+                    break;
+                
+                case "up":
+                    console.log("up!!!")
+                    break;
+            }
         }
 		
 	</script>
