@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Car Driving</title>
-	<style type="text/css">
+    <title>Car Driving</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
 		
         .barV, .barH {
             position:absolute;
@@ -21,7 +22,8 @@
             top: 162px;
             left: 793px;
         }
-	</style>
+    </style>
+
 </head>
 <body>
 	<div id="car"></div>
@@ -47,6 +49,18 @@
             car.style.top = "100px";
             car.style.left = "250px";
 		}
+
+        function start(){
+            intervalId = setInterval(carTick,50);
+        }
+
+        function carTick(e){
+            console.log(e)
+        }
+
+        function stop(){
+            clearInterval(intervalId);
+        }
 		
 	</script>
 </body>
