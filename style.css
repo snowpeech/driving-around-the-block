@@ -15,3 +15,24 @@
     width: 978px;
     height: 459px;
 }
+
+.intersection {
+    position:absolute;
+    border: 1px solid darkorange;
+    z-index: 5;
+    width:100px;
+    height:100px;
+    color: orange;
+}
+
+@keyframes turnDown {
+    from {
+        top: ;
+        left: ;
+    }
+    
+    to {
+        top: ;
+        left: ;
+    }
+}
