@@ -53,6 +53,8 @@
         var intervalDnId;
         var intervalLftId;
         var intervalUpId;
+        
+        var laps=0;
 
 		reset();
 
@@ -179,6 +181,9 @@
             switch(direction) {
                 case "right":
                     //console.log("right!!!")
+                    if (laps > 0 && carLeft>215){
+                        stop();
+                    }
                     if(carLeft>=660 && carLeft <=690){
                         console.log("slow down")
                         moveSlowRight();
@@ -265,6 +270,7 @@
             car.style.transform="rotate(0deg)";
             stop();
             intervalId = setInterval(carTick,50);
+            laps++;
             callback();
         }
 
