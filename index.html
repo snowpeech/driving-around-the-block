@@ -55,7 +55,7 @@
         var intervalUpId;
         
         var laps=0;
-        var totalLaps = 1;
+        var totalLaps;
 
 		reset();
 
@@ -86,6 +86,9 @@
 
             if (startCounter == 0){
                 startCounter ++;
+                if (!totalLaps){
+                    totalLaps = parseInt(prompt("How many laps do you want to drive?"));
+                }
 
                 switch(direction) {
                 case "right":
