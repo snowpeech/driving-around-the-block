@@ -23,6 +23,7 @@
     width:100px;
     height:100px;
     color: orange;
+    display: none;
 }
 
 @keyframes turnDown {
@@ -32,7 +33,8 @@
     }
     
     to {
-        top: ;
-        left: ;
+        top: 186px;
+        left: 791px;
+        transform: rotate(90deg);
     }
 }

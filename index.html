@@ -55,6 +55,7 @@
         var intervalUpId;
         
         var laps=0;
+        var totalLaps = 1;
 
 		reset();
 
@@ -77,6 +78,7 @@
             int4.style.left = "83px";
             
             startCounter = 0;
+            laps = 0;
 		}
 
         function start(){
@@ -88,26 +90,21 @@
                 switch(direction) {
                 case "right":
                     intervalId = setInterval(carTick,50);
-                    console.log("right?")
                     break;
                 
                 case "down":
                     intervalDnId = setInterval(carDownTick,50);
-                    console.log("car direction down?");
                     break;
                 
                 case "left":
                     intervalLftId = setInterval(carLftTick,50);
-                    console.log("left.")
                     break;
                 
                 case "up":
                     intervalLftId = setInterval(carUpTick,50);
-                    console.log("up.")
                     break;
+                }
             }
-            }
-            //need to add switch case to move proper direction if restarting
         }
 
         function carTick(){
@@ -116,19 +113,16 @@
         }
 
         function carDownTick(){
-            console.log("cardowntick fn")
             moveDown();
             evalInt();
         }
 
         function carLftTick(){
-            console.log("car Left tck fn")
             moveLeft();
             evalInt();
         }
 
         function carUpTick(){
-            console.log("car Left tck fn")
             moveUp();
             evalInt();
         }
@@ -150,7 +144,6 @@
 
         function moveDown(){
             car.style.top = `${parseInt(car.style.top.replace("px",""))+5}px`;
-            console.log("moveDown fn")
         }
 
         function moveLeft(){
@@ -162,7 +155,6 @@
 
         function moveUp(){
             car.style.top = `${parseInt(car.style.top.replace("px",""))-5}px`;
-            console.log("moveUp fn")
         }
 
         function evalInt(){
@@ -170,22 +162,13 @@
             var direction = car.attributes[1].nodeValue;
             var carLeft = parseInt(car.style.left.replace("px",""));
             var carTop = parseInt(car.style.top.replace("px",""));
-            console.log (carLeft, "top", carTop);
-
-            //create switch cases for each direction
-
-            var intersections = document.getElementsByClassName("intersection");
-            //console.dir(intersections)
-            //console.dir(intersections[0].attributes[2].nodeValue)//top: 62px; left: 805px
 
             switch(direction) {
                 case "right":
-                    //console.log("right!!!")
-                    if (laps > 0 && carLeft>215){
+                    if (laps >= totalLaps && carLeft>215){
                         stop();
                     }
                     if(carLeft>=660 && carLeft <=690){
-                        console.log("slow down")
                         moveSlowRight();
                     }
                     else if(carLeft >=690){
@@ -196,7 +179,7 @@
                     break;
                 
                 case "down":
-                    if( carTop <= 217 ){
+                    if( carTop <= 227 ){
                         moveDown();
                     }
                     else{
@@ -228,15 +211,12 @@
         }
 
         function turnDown(callback){
-            console.log("animate turn down") //add class to animate
-            console.dir(car);
             car.attributes[1].nodeValue = "down";
             car.style.top = "186px";
             car.style.left = "791px";
             car.style.transform="rotate(90deg)";
             stop();
             intervalDnId = setInterval(carDownTick,50);
-            //console.dir(car);
             callback();
             }
 
@@ -251,15 +231,12 @@
         }
 
         function turnUp(callback){
-            console.log("animate turn up") //add class to animate
-            console.dir(car);
             car.attributes[1].nodeValue = "up";
             car.style.top = "215px";
             car.style.left = "102px";
             car.style.transform="rotate(270deg)";
             stop();
             intervalUpId = setInterval(carUpTick,50);
-            //console.dir(car);
             callback();
             }
 
